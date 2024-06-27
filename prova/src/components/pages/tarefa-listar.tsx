@@ -21,7 +21,7 @@ function TarefaListar() {
       <table border={1}>
         <thead>
           <tr>
-            <th>#</th>
+            <th>TarefaId</th>
             <th>Título</th>
             <th>Descrição</th>
             <th>Criado Em</th>

@@ -28,13 +28,5 @@ const App: React.FC = () => {
       </BrowserRouter>
   );
 };
-// function App() {
-//   return (
-//     <div>
-// //       <TarefaCadastrar></TarefaCadastrar>
-// {       <TarefaListar></TarefaListar> }
-// //     </div>
-//   );
-// }
 
 export default App;

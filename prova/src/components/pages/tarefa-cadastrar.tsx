@@ -2,59 +2,53 @@ import { useState } from "react";
 import { Tarefa } from "../../models/Tarefa";
 
 function TarefaCadastrar(){
-
-    const[nome, setNome] = useState("")
-    const[nome, setNome] = useState("")
-    const[nome, setNome] = useState("")
-    const[nome, setNome] = useState("")
-    const[nome, setNome] = useState("")
-    const[nome, setNome] = useState("")
-    const[nome, setNome] = useState("")
-    const[nome, setNome] = useState("")
+    const[titulo, setTitulo] = useState("")
     const[descricao, setDescricao] = useState("")
-    const[quantidade, setQuantidade] = useState("")
-    const[valor, setValor] = useState("")
+    const[categoria, setCategoria] = useState("")
+    const[criadoEm, setCriadoEm] = useState("")
+    const[categoriaId, setCategoriaId] = useState("")
+    const[status, setStatus] = useState("Não Iniciada")
 
-function cadastrarProduto(e: any){
+
+function cadastrarTarefa(e: any){
     e.preventDefault();
-        const produto : Produto = {
-            nome: nome,
+        const tarefa : Tarefa = {
+            titulo : titulo,
             descricao: descricao,
-            quantidade: Number(quantidade),
-            valor: Number(valor),
+            categoria : categoria,
+            categoriaId : categoriaId,
+            criadoEm : criadoEm,
+            status : status,
         };
           
-        fetch("http://localhost:5143/produto/cadastrar", {
+        fetch("http://localhost:5000/produto/cadastrar", {
             method: "POST",
             headers: {
             "Content-Type": "application/json"
             },
-            body: JSON.stringify(produto)
+            body: JSON.stringify(tarefa)
         })
             .then((resposta) => resposta.json())
-            .then((produto : Produto[]) => {
-               setNome("");
+            .then((tarefa : Tarefa[]) => {
+               setTitulo("");
                 
             });
         }
 
     return (
         <div>
-            <h1>Cadastrar Produto</h1>
-            <form onSubmit={cadastrarProduto}>
-                <label>Nome:</label>
-                <input type="text" onChange={(e => setNome(e.target.value))} required />{" "}
+            <h1>Cadastrar Tarefa</h1>
+            <form onSubmit={cadastrarTarefa}>
+                <label>Título:</label>
+                <input type="text" value={titulo} onChange={(e => setTitulo(e.target.value))} required />{" "}
 
                 <label>Descrição:</label>
                 <input type="text" value={descricao} onChange={(e => setDescricao(e.target.value))} required />{" "}
 
-                <label>Quantidade:</label>
-                <input type="text"  value={quantidade} onChange={(e => setQuantidade(e.target.value))} required />{" "}
+                <label>CategoriaId:</label>
+                <input type="text" value={categoriaId} onChange={(e => setCategoriaId(e.target.value))} required />{" "}
 
-                <label>Valor:</label>
-                <input type="text"  value={valor} onChange={(e => setValor(e.target.value))} required />{" "} 
-
-                <button type="submit">Cadastrar Produto</button>
+                <button type="submit">Cadastrar Tarefa</button>
             </form>
         </div>
     );

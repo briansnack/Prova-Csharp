@@ -17,7 +17,7 @@ function TarefaListar() {
 
   return (
     <div>
-      <h1>Listar Tarefas</h1>
+      <h1>Lista de Tarefas</h1>
       <table border={1}>
         <thead>
           <tr>

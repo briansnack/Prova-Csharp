@@ -4,8 +4,6 @@ import { Tarefa } from "../../models/Tarefa";
 function TarefaCadastrar(){
     const[titulo, setTitulo] = useState("")
     const[descricao, setDescricao] = useState("")
-    const[categoria, setCategoria] = useState("")
-    const[criadoEm, setCriadoEm] = useState("")
     const[categoriaId, setCategoriaId] = useState("")
     const[status, setStatus] = useState("Não Iniciada")
 
@@ -15,13 +13,11 @@ function cadastrarTarefa(e: any){
         const tarefa : Tarefa = {
             titulo : titulo,
             descricao: descricao,
-            categoria : categoria,
             categoriaId : categoriaId,
-            criadoEm : criadoEm,
             status : status,
         };
           
-        fetch("http://localhost:5000/produto/cadastrar", {
+        fetch("http://localhost:5000/tarefas/cadastrar",{
             method: "POST",
             headers: {
             "Content-Type": "application/json"

@@ -88,7 +88,7 @@ app.MapGet("/tarefas/naoconcluidas", ([FromServices] AppDataContext ctx) =>
     // ctx.Tarefas.FirstOrDefaultAsync(tarefa => tarefa.Status == "Não iniciada");
         
     // if(tarefa != null){
-    // return Results.Ok(tarefa);
+    // return (ctx.Tarefas);
 // }
 });
 
@@ -98,7 +98,7 @@ app.MapGet("/tarefas/concluidas", ([FromServices] AppDataContext ctx) =>
     // ctx.Tarefas.FirstOrDefaultAsync(tarefa => tarefa.Status == "Concluída");
         
     // if(tarefa != null){
-    //   return Results.Ok(tarefa);
+    //   return (ctx.Tarefas);
     // }
 });
 
